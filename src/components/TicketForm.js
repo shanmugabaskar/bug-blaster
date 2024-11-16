@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export default function TicketForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [priority, setpriority] = useState("1");
+  const [priority, setPriority] = useState("1");
 
   const priorityLabels = {
     1: "Low",
@@ -14,11 +14,21 @@ export default function TicketForm() {
   const clearForm = () => {
     setTitle("");
     setDescription("");
-    setpriority("1");
+    setPriority("1");
   };
 
   const handleSubmit = (e) => {
-    e.preventDeafult();
+    e.preventDefault();
+
+    const ticketData = {
+      id: new Date().toISOString(),
+      title,
+      description,
+      priority,
+    };
+
+    console.log(ticketData);
+
     clearForm();
   };
 
@@ -51,7 +61,7 @@ export default function TicketForm() {
               value={value}
               checked={priority === value}
               className="priority-input"
-              onChange={(e) => setpriority(e.target.value)}
+              onChange={(e) => setPriority(e.target.value)}
             ></input>
             {label}
           </label>
@@ -59,7 +69,7 @@ export default function TicketForm() {
       </fieldset>
 
       <button type="submit" className="button">
-        Submit
+        submit
       </button>
     </form>
   );
