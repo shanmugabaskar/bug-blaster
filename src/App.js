@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import "./styles.css";
 import { useReducer } from "react";
@@ -6,7 +5,6 @@ import TicketForm from "./components/TicketForm";
 import ticketReducer from "./reducers/ticketReducers";
 import TicketList from "./components/TicketList";
 import { sortTickets } from "./utilities/sortingUtilities";
-import { type } from "@testing-library/user-event/dist/type";
 
 function App() {
   const initialState = {
